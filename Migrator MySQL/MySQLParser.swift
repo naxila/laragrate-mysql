@@ -1,37 +1,21 @@
 //
-//  MigrationsGenerator.swift
+//  MySQLParser.swift
 //  Migrator MySQL
 //
-//  Created by Алихан on 13/02/2020.
+//  Created by Алихан on 15/02/2020.
 //  Copyright © 2020 Nexen Origin, LLC. All rights reserved.
 //
 
 import Foundation
 
-protocol MigrationsGeneratorDelegate {
-    func generationDoneWith(fail: Bool)
-}
-
-class MigrationsGenerator {
+class MySQLParser {
     
-    //MARK: - Properties -
-    let path: String
-    let sqlCode: String
-    var delegate: MigrationsGeneratorDelegate?
+    //MARK: - Public -
     
-    
-    //MARK: - Constructors -
-    
-    init(path: String, sqlCode: String) {
-        self.path = path
-        self.sqlCode = sqlCode.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\t", with: "").lowercased()
-    }
-    
-    
-    //MARK: - Generator -
-    
-    func start() {
-        let rows: [String] = self.sqlCode.components(separatedBy: ";")
+    func tablesFrom(mysql: String) -> [Table] {
+        let mysql = mysql.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\t", with: "").lowercased()
+        
+        let rows: [String] = mysql.components(separatedBy: ";")
         print(rows.count)
         
         let tableRows = rows.filter { $0.contains("createtable") }
@@ -59,8 +43,9 @@ class MigrationsGenerator {
             }
         }
         
-        print(tables)
+        return tables
     }
+    
     
     //MARK: - Private -
     

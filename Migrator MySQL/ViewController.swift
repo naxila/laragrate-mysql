@@ -55,7 +55,7 @@ class ViewController: NSViewController {
     
     @IBAction func generateButtonAction(_ sender: Any) {
         if self.pathTextField.stringValue != "" && self.mySqlTextView.string != "" {
-            let generator = MigrationsGenerator(path: self.pathTextField.stringValue, sqlCode: self.mySqlTextView.string)
+            let generator = Generator(path: self.pathTextField.stringValue, sqlCode: self.mySqlTextView.string)
             generator.delegate = self
             generator.start()
         } else {
@@ -68,12 +68,12 @@ class ViewController: NSViewController {
 }
 
 
-//MARK: MigrationsGeneratorDelegate
+//MARK: GeneratorDelegate
 
-extension ViewController: MigrationsGeneratorDelegate {
-    func generationDoneWith(fail: Bool) {
+extension ViewController: GeneratorDelegate {
+    func generationDoneWith(fail: Bool, message: String?) {
         if fail {
-            self.resultLabel.stringValue = "Something went wrong :("
+            self.resultLabel.stringValue = message ?? "Something went wrong"
             self.resultLabel.textColor = .red
         } else {
             self.resultLabel.stringValue = "Done!"
