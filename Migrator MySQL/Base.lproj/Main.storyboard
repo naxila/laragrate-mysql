@@ -707,19 +707,19 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Migrator_MySQL" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="638" height="372"/>
+                        <rect key="frame" x="0.0" y="0.0" width="638" height="494"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z6Z-av-uEE">
-                                <rect key="frame" x="50" y="301" width="538" height="21"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Path to save" drawsBackground="YES" id="3IY-OB-Etn">
+                                <rect key="frame" x="50" y="423" width="538" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Path to your Laravel project" drawsBackground="YES" id="3IY-OB-Etn">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vO5-ma-mM5">
-                                <rect key="frame" x="496" y="265" width="98" height="32"/>
+                                <rect key="frame" x="496" y="387" width="98" height="32"/>
                                 <buttonCell key="cell" type="push" title="Choose..." bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wTU-fG-0UM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -729,33 +729,37 @@
                                 </connections>
                             </button>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjX-Ws-3qm">
-                                <rect key="frame" x="50" y="100" width="538" height="132"/>
+                                <rect key="frame" x="50" y="100" width="538" height="254"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="e13-4F-iQT">
-                                    <rect key="frame" x="0.0" y="0.0" width="538" height="132"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="538" height="254"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="eSY-64-MYM">
-                                            <rect key="frame" x="0.0" y="0.0" width="538" height="132"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="538" height="254"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="538" height="132"/>
+                                            <size key="minSize" width="538" height="254"/>
                                             <size key="maxSize" width="538" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
                                 </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="kU0-fh-w7Y"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="538" id="qHm-JJ-exs"/>
+                                </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="jBD-yN-pbM">
                                     <rect key="frame" x="-100" y="-100" width="240" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="A7Z-Bf-rhC">
-                                    <rect key="frame" x="522" y="0.0" width="16" height="132"/>
+                                    <rect key="frame" x="522" y="0.0" width="16" height="254"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UEj-Na-Ad7">
-                                <rect key="frame" x="48" y="240" width="48" height="16"/>
+                                <rect key="frame" x="48" y="362" width="48" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="MySQL" id="oIb-S6-QUz">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -807,7 +811,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13" y="720"/>
+            <point key="canvasLocation" x="13" y="747"/>
         </scene>
     </scenes>
 </document>

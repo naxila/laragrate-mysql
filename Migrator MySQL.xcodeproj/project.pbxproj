@@ -14,7 +14,9 @@
 		84146BFA23F594C00087B154 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84146BF923F594C00087B154 /* Generator.swift */; };
 		84146BFF23F5F9FA0087B154 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84146BFE23F5F9FA0087B154 /* Table.swift */; };
 		84146C0123F7FA540087B154 /* MySQLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84146C0023F7FA540087B154 /* MySQLParser.swift */; };
-		84146C0623F7FD140087B154 /* L5MigrationTemplate.lms in Resources */ = {isa = PBXBuildFile; fileRef = 84146C0523F7FD140087B154 /* L5MigrationTemplate.lms */; };
+		84146C0623F7FD140087B154 /* L5MigrationCreateTemplate.lms in Resources */ = {isa = PBXBuildFile; fileRef = 84146C0523F7FD140087B154 /* L5MigrationCreateTemplate.lms */; };
+		84146C0B23F9340F0087B154 /* Configurations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84146C0A23F9340F0087B154 /* Configurations.storyboard */; };
+		84146C0D23F96CDA0087B154 /* L5MigrationUpdateTemplate.lms in Resources */ = {isa = PBXBuildFile; fileRef = 84146C0C23F96CDA0087B154 /* L5MigrationUpdateTemplate.lms */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +30,9 @@
 		84146BF923F594C00087B154 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		84146BFE23F5F9FA0087B154 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		84146C0023F7FA540087B154 /* MySQLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySQLParser.swift; sourceTree = "<group>"; };
-		84146C0523F7FD140087B154 /* L5MigrationTemplate.lms */ = {isa = PBXFileReference; lastKnownFileType = text; path = L5MigrationTemplate.lms; sourceTree = "<group>"; };
+		84146C0523F7FD140087B154 /* L5MigrationCreateTemplate.lms */ = {isa = PBXFileReference; lastKnownFileType = text; path = L5MigrationCreateTemplate.lms; sourceTree = "<group>"; };
+		84146C0A23F9340F0087B154 /* Configurations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Configurations.storyboard; sourceTree = "<group>"; };
+		84146C0C23F96CDA0087B154 /* L5MigrationUpdateTemplate.lms */ = {isa = PBXFileReference; lastKnownFileType = text; path = L5MigrationUpdateTemplate.lms; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +65,10 @@
 		84146BE723F58BED0087B154 /* Migrator MySQL */ = {
 			isa = PBXGroup;
 			children = (
+				84146C0723F933650087B154 /* PresentationLayer */,
 				84146BF823F5949F0087B154 /* Generator */,
 				84146BE823F58BED0087B154 /* AppDelegate.swift */,
-				84146BEA23F58BED0087B154 /* ViewController.swift */,
 				84146BEC23F58BF00087B154 /* Assets.xcassets */,
-				84146BEE23F58BF00087B154 /* Main.storyboard */,
 				84146BF123F58BF00087B154 /* Info.plist */,
 				84146BF223F58BF00087B154 /* Migrator_MySQL.entitlements */,
 			);
@@ -94,9 +97,36 @@
 		84146C0223F7FBF30087B154 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				84146C0523F7FD140087B154 /* L5MigrationTemplate.lms */,
+				84146C0523F7FD140087B154 /* L5MigrationCreateTemplate.lms */,
+				84146C0C23F96CDA0087B154 /* L5MigrationUpdateTemplate.lms */,
 			);
 			name = Templates;
+			sourceTree = "<group>";
+		};
+		84146C0723F933650087B154 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				84146C0923F933AD0087B154 /* Confiigurations */,
+				84146C0823F9339A0087B154 /* Main */,
+			);
+			name = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		84146C0823F9339A0087B154 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				84146BEA23F58BED0087B154 /* ViewController.swift */,
+				84146BEE23F58BF00087B154 /* Main.storyboard */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		84146C0923F933AD0087B154 /* Confiigurations */ = {
+			isa = PBXGroup;
+			children = (
+				84146C0A23F9340F0087B154 /* Configurations.storyboard */,
+			);
+			name = Confiigurations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,9 +187,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84146C0D23F96CDA0087B154 /* L5MigrationUpdateTemplate.lms in Resources */,
 				84146BED23F58BF00087B154 /* Assets.xcassets in Resources */,
 				84146BF023F58BF00087B154 /* Main.storyboard in Resources */,
-				84146C0623F7FD140087B154 /* L5MigrationTemplate.lms in Resources */,
+				84146C0623F7FD140087B154 /* L5MigrationCreateTemplate.lms in Resources */,
+				84146C0B23F9340F0087B154 /* Configurations.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

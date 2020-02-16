@@ -33,14 +33,29 @@ class Generator {
     func start() {
         let parser = MySQLParser()
         let tables = parser.tablesFrom(mysql: self.sqlCode)
+        var i = 1
+        
         for table in tables {
             
             let tableName = table.title
-            let className = classNameFrom(name: tableName)
+            let className = classNameFrom(name: "create_\(tableName)")
             let tableFields = migrationFieldsFrom(table: table)
-            var migration = contentsOfTemplate(name: "L5MigrationTemplate")
+            var migration = contentsOfTemplate(name: "L5MigrationCreateTemplate")
             migration = migration.replacingOccurrences(of: "%CLASS_NAME%", with: className).replacingOccurrences(of: "%TABLE_NAME%", with: tableName).replacingOccurrences(of: "%TABLE_FIELDS%", with: tableFields)
-            save(string: migration, with: Date().description.replacingOccurrences(of: " ", with: "_") + "_create_\(tableName)" + ".php")
+            save(string: migration, with: "database/migrations/" + "2019_08_19_0000" + (i > 10 ? i.description : "0" + i.description) + "_create_\(tableName)_table" + ".php")
+            i += 1
+        }
+        
+        for table in tables {
+            
+            let tableName = table.title
+            let className = classNameFrom(name: "add_refs_to_\(tableName)")
+            let tableFields = migrationReferencesFrom(table: table)
+            let dropFields = dropForeignKeysFrom(table: table)
+            var migration = contentsOfTemplate(name: "L5MigrationUpdateTemplate")
+            migration = migration.replacingOccurrences(of: "%CLASS_NAME%", with: className).replacingOccurrences(of: "%TABLE_NAME%", with: tableName).replacingOccurrences(of: "%TABLE_FIELDS%", with: tableFields).replacingOccurrences(of: "%DROP_FIELDS%", with: dropFields)
+            save(string: migration, with: "database/migrations/" + "2019_08_19_001" + (i > 10 ? i.description : "0" + i.description) + "_add_refs_to_\(tableName)_table" + ".php")
+            i += 1
         }
     }
     
@@ -54,7 +69,7 @@ class Generator {
             result += component.lowercased().capitalized
         }
         
-        return result
+        return result + "Table"
     }
     
     private func migrationFieldsFrom(table: Table) -> String {
@@ -87,9 +102,25 @@ class Generator {
             
         }
         
+        return fieldsString
+    }
+    
+    private func migrationReferencesFrom(table: Table) -> String {
+        var fieldsString = ""
         for field in table.fields {
             if let reference = field.reference {
                 fieldsString += "\t\t\t$table->foreign('\(reference.field)')->references('\(reference.toField)')->on('\(reference.toTable)');\n"
+            }
+
+        }
+        return fieldsString
+    }
+    
+    private func dropForeignKeysFrom(table: Table) -> String {
+        var fieldsString = ""
+        for field in table.fields {
+            if let reference = field.reference {
+                fieldsString += "\t\t\t$table->dropForeign('\(reference.field)');\n"
             }
 
         }
@@ -117,11 +148,6 @@ class Generator {
             print(error)
         }
         
-//        if manager.createFile(atPath: filename, contents: string.data(using: .utf8), attributes: nil) {
-//            self.delegate?.generationDoneWith(fail: false, message: nil)
-//        } else {
-//            self.delegate?.generationDoneWith(fail: true, message: "File saving error")
-//        }
     }
     
     private func contentsOfTemplate(name: String) -> String {
