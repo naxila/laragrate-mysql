@@ -18,13 +18,21 @@ class Generator {
     let path: String
     let sqlCode: String
     var delegate: GeneratorDelegate?
+    var isMigrationsNeeded: Bool
+    var isModelsNeeded: Bool
+    var isAuthTableDefined: Bool
+    var authTableName: String
     
     
     //MARK: - Constructors -
     
-    init(path: String, sqlCode: String) {
+    init(path: String, sqlCode: String, isMigrationsNeeded: Bool, isModelsNeeded: Bool, isAuthTableDefined: Bool, authTableName: String) {
         self.path = path
         self.sqlCode = sqlCode
+        self.isMigrationsNeeded = isMigrationsNeeded
+        self.isModelsNeeded = isModelsNeeded
+        self.isAuthTableDefined = isAuthTableDefined
+        self.authTableName = authTableName
     }
     
     
@@ -33,8 +41,17 @@ class Generator {
     func start() {
         let parser = MySQLParser()
         let tables = parser.tablesFrom(mysql: self.sqlCode)
-        let migrationsGener = MigrationsGenerator(tables: tables, path: self.path, filesManagerDelegate: self)
-        migrationsGener.start()
+        
+        if isMigrationsNeeded {
+            let migrationsGener = MigrationsGenerator(tables: tables, path: self.path, filesManagerDelegate: self)
+            migrationsGener.start()
+        }
+        
+        if true {
+            let modelsGener = ModelsGenerator(tables: tables, path: self.path, filesManagerDelegate: self)
+            modelsGener.start()
+        }
+        
     }
 
 }

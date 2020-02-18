@@ -19,6 +19,8 @@
 		84146C0D23F96CDA0087B154 /* L5MigrationUpdateTemplate.lms in Resources */ = {isa = PBXBuildFile; fileRef = 84146C0C23F96CDA0087B154 /* L5MigrationUpdateTemplate.lms */; };
 		84146C1023F979C00087B154 /* MigrationsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84146C0F23F979C00087B154 /* MigrationsGenerator.swift */; };
 		84146C1323F97A2A0087B154 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84146C1223F97A2A0087B154 /* FilesManager.swift */; };
+		84146C1523F97E650087B154 /* ModelsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84146C1423F97E650087B154 /* ModelsGenerator.swift */; };
+		84146C1723F9C3810087B154 /* L5ModelTemplate.lms in Resources */ = {isa = PBXBuildFile; fileRef = 84146C1623F9C3810087B154 /* L5ModelTemplate.lms */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		84146C0C23F96CDA0087B154 /* L5MigrationUpdateTemplate.lms */ = {isa = PBXFileReference; lastKnownFileType = text; path = L5MigrationUpdateTemplate.lms; sourceTree = "<group>"; };
 		84146C0F23F979C00087B154 /* MigrationsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationsGenerator.swift; sourceTree = "<group>"; };
 		84146C1223F97A2A0087B154 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
+		84146C1423F97E650087B154 /* ModelsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsGenerator.swift; sourceTree = "<group>"; };
+		84146C1623F9C3810087B154 /* L5ModelTemplate.lms */ = {isa = PBXFileReference; lastKnownFileType = text; path = L5ModelTemplate.lms; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 			children = (
 				84146C0523F7FD140087B154 /* L5MigrationCreateTemplate.lms */,
 				84146C0C23F96CDA0087B154 /* L5MigrationUpdateTemplate.lms */,
+				84146C1623F9C3810087B154 /* L5ModelTemplate.lms */,
 			);
 			name = Templates;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				84146C0F23F979C00087B154 /* MigrationsGenerator.swift */,
+				84146C1423F97E650087B154 /* ModelsGenerator.swift */,
 			);
 			name = GeneratorFoundation;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 				84146BF023F58BF00087B154 /* Main.storyboard in Resources */,
 				84146C0623F7FD140087B154 /* L5MigrationCreateTemplate.lms in Resources */,
 				84146C0B23F9340F0087B154 /* Configurations.storyboard in Resources */,
+				84146C1723F9C3810087B154 /* L5ModelTemplate.lms in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +234,7 @@
 				84146BFF23F5F9FA0087B154 /* Table.swift in Sources */,
 				84146BEB23F58BED0087B154 /* ViewController.swift in Sources */,
 				84146C1023F979C00087B154 /* MigrationsGenerator.swift in Sources */,
+				84146C1523F97E650087B154 /* ModelsGenerator.swift in Sources */,
 				84146BE923F58BED0087B154 /* AppDelegate.swift in Sources */,
 				84146C1323F97A2A0087B154 /* FilesManager.swift in Sources */,
 				84146BFA23F594C00087B154 /* Generator.swift in Sources */,

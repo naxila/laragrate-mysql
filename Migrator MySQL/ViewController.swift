@@ -14,6 +14,10 @@ class ViewController: NSViewController {
     @IBOutlet weak var pathTextField: NSTextField!
     @IBOutlet weak var mySqlTextView: NSTextView!
     @IBOutlet weak var resultLabel: NSTextField!
+    @IBOutlet weak var migrationsCheckbox: NSButton!
+    @IBOutlet weak var modelsCheckbox: NSButton!
+    @IBOutlet weak var authCheckbox: NSButton!
+    @IBOutlet weak var authTextField: NSTextField!
     
     
     //MARK: - Lyfecycle -
@@ -55,7 +59,7 @@ class ViewController: NSViewController {
     
     @IBAction func generateButtonAction(_ sender: Any) {
         if self.pathTextField.stringValue != "" && self.mySqlTextView.string != "" {
-            let generator = Generator(path: self.pathTextField.stringValue, sqlCode: self.mySqlTextView.string)
+            let generator = Generator(path: self.pathTextField.stringValue, sqlCode: self.mySqlTextView.string, isMigrationsNeeded: self.migrationsCheckbox.state == NSControl.StateValue.on, isModelsNeeded: self.modelsCheckbox.state == NSControl.StateValue.off)
             generator.delegate = self
             generator.start()
         } else {

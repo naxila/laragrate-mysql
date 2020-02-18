@@ -11,6 +11,8 @@ import Foundation
 struct Table {
     let title: String
     var fields: [TableField]
+    var backReferences: [TableReference]
+    var isAuthTable = false
 }
 
 struct TableField {

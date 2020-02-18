@@ -10,6 +10,9 @@ import Foundation
 
 class MySQLParser {
     
+    //MARK: - Properties
+    var authTableName: String?
+    
     //MARK: - Public -
     
     func tablesFrom(mysql: String) -> [Table] {
@@ -27,7 +30,7 @@ class MySQLParser {
             let tableTitle = row.components(separatedBy: "(")[0].replacingOccurrences(of: "createtable`", with: "").replacingOccurrences(of: "`", with: "")
             let fields = self.extractFieldsFrom(string: row)
             
-            let table = Table(title: tableTitle, fields: fields)
+            let table = Table(title: tableTitle, fields: fields, backReferences: [])
             tables.append(table)
         }
         
@@ -38,6 +41,10 @@ class MySQLParser {
                     if let fieldIndex = tables[tableIndex].fields.firstIndex(where: { $0.title == reference.field }) {
                         tables[tableIndex].fields[fieldIndex].reference = reference
                     }
+                }
+                
+                if let tableIndex = tables.firstIndex(where: { $0.title == reference.toTable }) {
+                    tables[tableIndex].backReferences.append(reference)
                 }
                 
             }

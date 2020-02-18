@@ -10,10 +10,14 @@ import Foundation
 
 class MigrationsGenerator {
     
+    //MARK: - Properties -
     private let filesManager = FilesManager(delegate: nil)
     private var tables: [Table]
     private var path: String
     private var filesManagerDelegate: FilesManagerDelegate?
+    
+    
+    //MARK: - Constructor -
     
     init(tables: [Table], path: String, filesManagerDelegate: FilesManagerDelegate?) {
         self.tables = tables
@@ -21,6 +25,9 @@ class MigrationsGenerator {
         self.filesManagerDelegate = filesManagerDelegate
         self.filesManager.delegate = self.filesManagerDelegate
     }
+    
+    
+    //MARK: - Generator -
     
     func start() {
         let tables = self.tables
