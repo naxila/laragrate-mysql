@@ -59,7 +59,7 @@ class ViewController: NSViewController {
     
     @IBAction func generateButtonAction(_ sender: Any) {
         if self.pathTextField.stringValue != "" && self.mySqlTextView.string != "" {
-            let generator = Generator(path: self.pathTextField.stringValue, sqlCode: self.mySqlTextView.string, isMigrationsNeeded: self.migrationsCheckbox.state == NSControl.StateValue.on, isModelsNeeded: self.modelsCheckbox.state == NSControl.StateValue.off)
+            let generator = Generator(path: self.pathTextField.stringValue, sqlCode: self.mySqlTextView.string, isMigrationsNeeded: self.migrationsCheckbox.state == NSControl.StateValue.on, isModelsNeeded: self.modelsCheckbox.state == NSControl.StateValue.off, isAuthTableDefined: false, authTableName: "")
             generator.delegate = self
             generator.start()
         } else {
